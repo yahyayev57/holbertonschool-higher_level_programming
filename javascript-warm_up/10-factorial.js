@@ -1,6 +1,14 @@
 #!/usr/bin/node
 function factorial (n) {
-  return n === 0 || isNaN(n) ? 1 : n * factorial(n - 1);
+  if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    return factorial(n - 1) * n;
+  }
 }
-
-console.log(factorial(Number(process.argv[2])));
+const numArg = process.argv[2];
+if (numArg === undefined) {
+  console.log(1);
+} else {
+  console.log(factorial(numArg));
+}
